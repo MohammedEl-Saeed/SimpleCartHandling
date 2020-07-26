@@ -16,9 +16,7 @@
         </tr>
         </thead>
         <tbody>
-
         <?php $total = 0 ?>
-
         @if(isset($cartItems) && count($cartItems) > 0)
 {{--        @if(session('cart'))--}}
 {{--            @foreach(session('cart') as $id => $details)--}}
