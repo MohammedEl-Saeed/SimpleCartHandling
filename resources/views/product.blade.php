@@ -1,4 +1,4 @@
-@extends('layouts.layout')
+@extends('layouts.layout',['cartItems'=>$orderItems,'wishItems'=>$wishItems])
 @include('layouts.app')
 
 @section('title', 'Products')

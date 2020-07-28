@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Product;
+use App\Http\Controllers\CartController;
 
 class ProductController extends Controller
 {
@@ -11,7 +12,11 @@ class ProductController extends Controller
     {
         $products = Product::all();
 //        session()->flush();
-        return view('product',compact('products'));
+        $cartController = new CartController();
+        $wishItems = $cartController->carts('wish-list-cart');
+        $orderItems = $cartController->carts( 'order-cart' );
+//        dd($orderItems,$wishItems);
+        return view('product',compact('products','wishItems','orderItems'));
     }
 
 

@@ -23,10 +23,12 @@
         <div class="col-lg-12 col-sm-12 col-12 main-section">
             <div class="dropdown">
                 <?php $total = 0 ; $quantity = 0;?>
-                @foreach($cartItems as $id => $details)
-                    <?php $total += $details['price'] * $details['quantity'] ?>
-                    <?php $quantity += $details['quantity'] ?>
-                @endforeach
+                @if($cartItems)
+                    @foreach($cartItems as $id => $details)
+                        <?php $total += $details['price'] * $details['quantity'] ?>
+                        <?php $quantity += $details['quantity'] ?>
+                    @endforeach
+                @endif
                 <button type="button" class="btn btn-info" data-toggle="dropdown">
                     <i class="fa fa-shopping-cart" aria-hidden="true"></i> Order Cart <span class="badge badge-pill badge-danger">{{ $quantity }}</span>
                 </button>
@@ -66,10 +68,12 @@
             </div>
             <div class="dropdown">
                 <?php $total = 0 ; $quantity = 0;?>
-                @foreach($wishItems as $id => $details)
-                    <?php $total += $details['price'] * $details['quantity'] ?>
-                    <?php $quantity += $details['quantity'] ?>
-                @endforeach
+                @if($wishItems)
+                    @foreach($wishItems as $id => $details)
+                        <?php $total += $details['price'] * $details['quantity'] ?>
+                        <?php $quantity += $details['quantity'] ?>
+                    @endforeach
+                @endif
                 <button type="button" class="btn btn-info" data-toggle="dropdown">
                     <i class="fa fa-shopping-cart" aria-hidden="true"></i> Wishlist Cart <span class="badge badge-pill badge-danger">{{ $quantity }}</span>
                 </button>
