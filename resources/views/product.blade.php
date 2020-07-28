@@ -1,4 +1,5 @@
 @extends('layouts.layout')
+@include('layouts.app')
 
 @section('title', 'Products')
 

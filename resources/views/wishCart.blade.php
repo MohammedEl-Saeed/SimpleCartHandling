@@ -1,5 +1,5 @@
 @include('layouts.app')
-@extends('layouts.layout',['cartItems'=>$cartItems,'wishItems'=>$wishItems])
+@extends('layouts.layout',['cartItems'=>$orderItems,'wishItems'=>$cartItems])
 
 @section('title', 'Cart')
 

@@ -23,7 +23,7 @@
         <div class="col-lg-12 col-sm-12 col-12 main-section">
             <div class="dropdown">
                 <?php $total = 0 ; $quantity = 0;?>
-                @foreach((array) session('order-cart') as $id => $details)
+                @foreach($cartItems as $id => $details)
                     <?php $total += $details['price'] * $details['quantity'] ?>
                     <?php $quantity += $details['quantity'] ?>
                 @endforeach
@@ -40,8 +40,8 @@
                         </div>
                     </div>
                     <div class="cart-item-menu">
-                    @if(session('order-cart'))
-                        @foreach(session('order-cart') as $id => $details)
+                    @if($cartItems)
+                        @foreach($cartItems as $id => $details)
                             <div class="row cart-detail">
                                 <div class="col-lg-4 col-sm-4 col-4 cart-detail-img">
                                     <img src="{{ $details['photo'] }}" />
@@ -66,7 +66,7 @@
             </div>
             <div class="dropdown">
                 <?php $total = 0 ; $quantity = 0;?>
-                @foreach((array) session('wish-list-cart') as $id => $details)
+                @foreach($wishItems as $id => $details)
                     <?php $total += $details['price'] * $details['quantity'] ?>
                     <?php $quantity += $details['quantity'] ?>
                 @endforeach
@@ -83,8 +83,8 @@
                     </div>
                 </div>
                 <div class="cart-item-menu">
-                @if(session('wish-list-cart'))
-                    @foreach(session('wish-list-cart') as $id => $details)
+                @if($wishItems)
+                    @foreach($wishItems as $id => $details)
                         <div class="row cart-detail">
                             <div class="col-lg-4 col-sm-4 col-4 cart-detail-img">
                                 <img src="{{ $details['photo'] }}" />
@@ -114,6 +114,7 @@
 <div class="container page">
     @yield('content')
 </div>
+<script src="{{URL::asset('asset/js/bootstrap.min.js')}}"></script>
 
 @yield('scripts')
 
